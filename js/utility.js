@@ -34,8 +34,25 @@ function play(){
 function gameOver(elementId){
     hideElementById('game-screen');
     showElementById('final-score-screen');
+    const currentScore = document.getElementById('current-score');
+    const finalScore = document.getElementById('final-score');
+
+    // Get the current score value
+    const currentScoreValue = parseInt(currentScore.innerText);
+
+    // Set the final score value
+    finalScore.innerText = currentScoreValue;
+    
 }
 function playAgain(){
     hideElementById('final-score-screen');
     showElementById('game-screen'); 
+    const initialScore = 0;
+    const initialLife = 3;
+
+    const currentScore = document.getElementById('current-score');
+    currentScore.innerText = initialScore;
+    const currentLife = document.getElementById('current-life');
+    currentLife.innerText = initialLife;
+    
 }

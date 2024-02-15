@@ -1,12 +1,14 @@
 function keyboardButtonPress(event){
     const pressedKey = event.key;
+    if(pressedKey === 'Escape'){
+        gameOver();
+    }
     
     const currentAlphabetElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetElement.innerText;
     console.log(pressedKey , currentAlphabet);
 
     if(pressedKey === currentAlphabet){
-        console.log('u win');
         removeBgColorById(currentAlphabet);
         continuePlay();
 
