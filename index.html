@@ -11,15 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!--Anton Font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins&display=swap" rel="stylesheet">
     <style>
-        .font-poppins{
+        .font-poppins {
             font-family: "Poppins", sans-serif;
         }
-        .font-anton{
+        .font-anton {
             font-family: "Anton", sans-serif;
         }
     </style>
@@ -27,11 +23,12 @@
 <body>
     <main class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-no-repeat bg-center">
         <!--Home Page-->
-        <section id="home-screen" class="flex flex-col justify-center items-center text-white min-h-screen ">
-            <div class="flex flex-col items-center gap-8">
-                <h2 class="font-anton text-9xl">ALPHABET CLASH</h2>
-                <p class="font-poppins text-2xl">Yaaah, Let's Play The Alphabet Clash! Press “Enter” to Play!</p>
+        <section id="home-screen" class="flex flex-col justify-center items-center text-white min-h-screen p-4">
+            <div class="flex flex-col items-center gap-6 sm:gap-8">
+                <h2 class="font-anton text-6xl sm:text-9xl text-center">ALPHABET CLASH</h2>
+                <p class="font-poppins text-lg sm:text-2xl text-center">Yaaah, Let's Play The Alphabet Clash! Press “Enter” to Play!</p>
                 <button onclick="play()" class="btn font-poppins font-semibold">Play Now</button>
+                <input type="text" id="hidden-input" class="hidden" onfocus="this.blur();"> <!-- Hidden input field -->
             </div>    
         </section>
         <!--Game Page-->
@@ -39,19 +36,18 @@
             <div class="flex flex-col gap-10 pt-20">
                 <!--screen-->
                 <div class="flex justify-center items-center">
-                    <div class="artboard artboard-horizontal phone-6 border-[20px] border-[#010313CC] rounded-2xl bg-[#FFFFFFB3] ">
+                    <div class="artboard artboard-horizontal phone-6 border-[20px] border-[#010313CC] rounded-2xl bg-[#FFFFFFB3] w-[90vw] max-w-[600px]">
                         <div class="flex justify-center">
                             <p class="font-poppins font-medium bg-[#2F2941] text-white p-4 pb-4 rounded-b-lg">Don't watch keyboard while playing...</p>
                         </div>
                         <div class="flex justify-center">
-                            <h1 id="current-alphabet" class="font-poppins font-semibold text-9xl text-[#010313] ">Y</h1>
+                            <h1 id="current-alphabet" class="font-poppins font-semibold text-9xl text-[#010313]">Y</h1>
                         </div>
                     </div>
-                    
                 </div>
                 <!--Keyboard-->
-                <div>
-                    <div class="flex justify-center gap-1 my-1 w-full">
+                <div class="flex flex-col items-center">
+                    <div class="flex justify-center gap-1 mb-1">
                         <kbd id="q" class="kbd">q</kbd>
                         <kbd id="w" class="kbd">w</kbd>
                         <kbd id="e" class="kbd">e</kbd>
@@ -62,8 +58,8 @@
                         <kbd id="i" class="kbd">i</kbd>
                         <kbd id="o" class="kbd">o</kbd>
                         <kbd id="p" class="kbd">p</kbd>
-                    </div> 
-                    <div class="flex justify-center gap-1 my-1 w-full">
+                    </div>
+                    <div class="flex justify-center gap-1 mb-1">
                         <kbd id="a" class="kbd">a</kbd>
                         <kbd id="s" class="kbd">s</kbd>
                         <kbd id="d" class="kbd">d</kbd>
@@ -73,8 +69,8 @@
                         <kbd id="j" class="kbd">j</kbd>
                         <kbd id="k" class="kbd">k</kbd>
                         <kbd id="l" class="kbd">l</kbd>
-                    </div> 
-                    <div class="flex justify-center gap-1 my-1 w-full">
+                    </div>
+                    <div class="flex justify-center gap-1">
                         <kbd id="z" class="kbd">z</kbd>
                         <kbd id="x" class="kbd">x</kbd>
                         <kbd id="c" class="kbd">c</kbd>
@@ -99,7 +95,7 @@
                         <span id="current-score">0</span>
                     </button>
                 </div>
-        </div>    
+            </div>    
         </section>
         <!--Score Page-->
         <section id="final-score-screen" class="hidden">
