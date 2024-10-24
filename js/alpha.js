@@ -8,24 +8,27 @@ function keyboardButtonPress(event) {
     const currentAlphabet = currentAlphabetElement.innerText;
     console.log(pressedKey, currentAlphabet);
 
-    if (pressedKey === currentAlphabet) {
-        removeBgColorById(currentAlphabet);
-        continuePlay();
+    // Only respond to keyboard input if the game is active
+    if (currentAlphabet) {
+        if (pressedKey === currentAlphabet) {
+            removeBgColorById(currentAlphabet);
+            continuePlay();
 
-        const currentScore = document.getElementById('current-score');
-        const currentScoreText = parseInt(currentScore.innerText);
+            const currentScore = document.getElementById('current-score');
+            const currentScoreText = parseInt(currentScore.innerText);
 
-        const updatedScore = currentScoreText + 1;
-        currentScore.innerText = updatedScore;
+            const updatedScore = currentScoreText + 1;
+            currentScore.innerText = updatedScore;
 
-    } else {
-        const currentLife = document.getElementById('current-life');
-        const currentLifeText = parseInt(currentLife.innerText);
+        } else {
+            const currentLife = document.getElementById('current-life');
+            const currentLifeText = parseInt(currentLife.innerText);
 
-        const updatedLife = currentLifeText - 1;
-        currentLife.innerText = updatedLife;
-        if (updatedLife <= 0) {
-            gameOver();
+            const updatedLife = currentLifeText - 1;
+            currentLife.innerText = updatedLife;
+            if (updatedLife <= 0) {
+                gameOver();
+            }
         }
     }
 }
@@ -83,3 +86,4 @@ function playAgain() {
     const currentLife = document.getElementById('current-life');
     currentLife.innerText = initialLife;
 }
+
